@@ -31,11 +31,15 @@ class predict(SemanticRoleLabelerPredictor):
             yield sentence
 
     @overrides
+    def _json_to_instance(self, json_dict: JsonDict) -> Instance:
+        new_sent=json_dict['sentence']
+        tokens = self._tokenizer.tokenize(new_sent)
+        return self.tokens_to_instances(tokens)
+   
+    @overrides
     def dump_line(self, outputs) -> str:
         output_file=open("output.txt", "a",encoding="utf-8")
         return json.dump(outputs, output_file,ensure_ascii=False)
-
-
 
     @overrides
     def _sentence_to_srl_instances(self, sentence):
@@ -103,6 +107,7 @@ if __name__ == "__main__":
     #esta é a função que demora
     archive = load_archive(
         archive_file,
+        cuda_device = torch.cuda.current_device()
     )
 
     if not os.path.isfile(input_text):
