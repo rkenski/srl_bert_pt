@@ -198,7 +198,7 @@ class SrlReader(DatasetReader):
         return word_piece_tokens, end_offsets, start_offsets
 
     @overrides
-    def _read(self, file_path: str):
+    def _read(self, file_path: str) -> Iterable[Instance]:
         # This reads the folds data
         
         # if `file_path` is a URL, redirect to the cache
@@ -213,9 +213,6 @@ class SrlReader(DatasetReader):
                 tokens = [Token(t) for t in words]
                 yield self.text_to_instance(tokens, verb_indicator, tags)
                 
-
-            
-
     def text_to_instance(self,  # type: ignore
                          tokens: List[Token],
                          verb_label: List[int],
