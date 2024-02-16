@@ -1,7 +1,7 @@
 from transformers import AutoModel, AutoTokenizer
 from my_model import SrlMyModel
-import torch
 from allennlp.data.vocabulary import Vocabulary
+import torch
 import sys
 import os
 from shutil import copyfile

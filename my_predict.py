@@ -6,9 +6,7 @@ from allennlp.models.archival import load_archive
 import my_model, my_reader, conll_reader
 from allennlp.data import DatasetReader, Instance
 from allennlp.common.util import JsonDict
-import sys
-import os
-import json
+import sys, os, json, torch
 from typing import List, Iterator, Optional
 from allennlp.commands.predict import _PredictManager
 from allennlp.common.file_utils import cached_path
@@ -107,7 +105,7 @@ if __name__ == "__main__":
     #esta é a função que demora
     archive = load_archive(
         archive_file,
-        cuda_device = torch.cuda.current_device()
+        cuda_device = -1 #For CPU, otherwise use 'torch.cuda.current_device()'
     )
 
     if not os.path.isfile(input_text):
@@ -129,3 +127,7 @@ if __name__ == "__main__":
 
     with open("output.txt", "a") as f:
         f.write("\n")
+
+
+archive_file = "ud_srl-enpt_xlmr-large"
+input_text = 'esse é um texto de teste.'
