@@ -337,7 +337,7 @@ class UDTransformerDatasetReader(UniversalDependenciesDatasetReader):
         super().__init__(token_indexers, use_language_specific_pos, tokenizer, **kwargs)
 
     @overrides
-    def _read(self, file_path: str):
+    def _read(self, file_path: str) -> Iterable[Instance]:
         # if `file_path` is a URL, redirect to the cache
         file_path = cached_path(file_path)
 
