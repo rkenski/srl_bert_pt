@@ -455,7 +455,7 @@ class SrlMineReader(DatasetReader):
         return word_piece_tokens, end_offsets, start_offsets
 
     @overrides
-    def _read(self, file_path: str):
+    def _read(self, file_path: str) -> Iterable[Instance]:
         # if `file_path` is a URL, redirect to the cache
         file_path = cached_path(file_path)
         ontonotes_reader = Ontonotes_mine()
