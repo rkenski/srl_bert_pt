@@ -21,9 +21,6 @@
     "model": {
       "type": "from_archive",
       "archive_file": "Models/ud_srl-enpt_xlmr-large/weights.th",
-      "embedding_dropout": 0.1,
-      "verbose_metrics": true,
-      "bert_model": "liaad/ud_srl-enpt_xlmr-large"
     },
 
     "trainer": {
