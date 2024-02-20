@@ -1,6 +1,6 @@
 {
     "dataset_reader": {
-        "type": "srl-bert",
+        "type": "srl_bert",
         "bert_model":"xlm-roberta-large",
         "bert_model_name": "xlm-roberta-large",
         "token_indexers": {
