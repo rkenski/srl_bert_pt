@@ -20,7 +20,7 @@
 
     "model": {
       "type": "from_archive",
-      "archive_file": "Models/ud_srl-enpt_xlmr-large/weights.th",
+      "archive_file": "Models/ud_srl-enpt_xlmr-large/weights.th"
     },
 
     "trainer": {
